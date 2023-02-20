@@ -1,11 +1,10 @@
 <script setup>
-
+import NavBottom from './views/NavBottom.vue'
 </script>
 
 <template>
-  <div>
-    hello app
-  </div>
+  <router-view></router-view>
+  <NavBottom />
 </template>
 
 <style scoped>
