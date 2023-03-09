@@ -7,7 +7,11 @@ export default defineConfig({
     // open: true,
     port: 8080,
     proxy: {
-      '/home/page': 'http://localhost:3333',
+      '/api': {
+        target: 'http://localhost:3333',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
     }
   },
   plugins: [vue()],

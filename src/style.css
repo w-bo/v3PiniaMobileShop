@@ -243,7 +243,7 @@ ol, ul {
 }
 .c-wrap-info b {
   font: 400 16px arial;
-  margin-left: -5px;
+  /* margin-left: -5px; */
 }
 .c-wrap-info .shoppingCart {
   border-radius: 50%;

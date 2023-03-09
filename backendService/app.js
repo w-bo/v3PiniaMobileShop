@@ -20,9 +20,9 @@ app.get('/home/page/:page/:pageSize', (req, res) => {
     const { pageSize } = req.params
     const arr = []
     const imgLists = [ 
-        'bag.png', 'bao.png', 'bj.png', 'book.png', 'canju.png', 
-        'ert.png', 'lg.png', 'jiaju.jpg', 'm1.png', 'm2.png', 
-        'm3.png', 'ship.png', 'nv.png', 'wai.png', 'xie.png', 
+        'bag.png', 'bao.png', 'bj.jpg', 'book.png', 'canju.png', 
+        'ert.png', 'lg.png', 'jiaju.jpg', 'm1.jpg', 'm2.jpg', 
+        'm3.jpg', 'ship.png', 'nv.png', 'wai.png', 'xie.png', 
     ]
     for( var i = 1; i <= pageSize; i++ ) {
         arr.push({
