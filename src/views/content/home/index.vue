@@ -3,6 +3,21 @@
 // 首页模块拆分成：静态（类别）+ 动态（列表）
 import category from './category.vue'
 import list from './list.vue'
+
+import { onMounted, ref } from 'vue'
+import { getPageLists } from '../../../api/api.js'
+
+let products = ref([])
+onMounted(() => {
+    fn()
+    console.log(1)
+})
+
+async function fn() {
+    let res = await getPageLists(2,15)
+    console.log(res)
+    // products.value = res
+}
 </script>
 
 <template>
