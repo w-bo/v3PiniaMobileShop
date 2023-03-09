@@ -15,8 +15,7 @@ onMounted(() => {
 
 async function fn() {
     let res = await getPageLists(2,15)
-    console.log(res)
-    // products.value = res
+    products.value = res.data
 }
 </script>
 
