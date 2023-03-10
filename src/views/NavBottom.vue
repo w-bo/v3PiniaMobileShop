@@ -1,6 +1,12 @@
 <script setup>
 import { ref } from "vue";
 import { navData as lists } from '../utils/commonData.js'
+import { basketStore } from "../store/basket";
+import { storeToRefs } from "pinia";
+const store = basketStore()
+
+// 解构并使数据具有响应式
+const { totalCount } = storeToRefs(store)
 
 </script>
 
@@ -15,6 +21,7 @@ import { navData as lists } from '../utils/commonData.js'
               <i :class="['iconfont', v.icon]"></i>
               <span>{{ v.title }}</span>
             </router-link>
+            <span class="count" v-show="v.path === '/shopping'">{{ totalCount }}</span>
           </li>
         </ul>
       </div>

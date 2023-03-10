@@ -1,13 +1,20 @@
 <script setup>
 import { ref } from "vue";
+import { basketStore } from "@/store/basket";
 
 const { products } = defineProps({
   products: Array,
   default: () => [{}],
 });
 
+const store = basketStore()
+
 function getImg(name) {
     return new URL(`../../../assets/image/${name}`, import.meta.url).href
+}
+
+function addBasket(v) {
+    store.addBasket(v)
 }
 </script>
 <template>
@@ -23,7 +30,7 @@ function getImg(name) {
         <div class="c-wrap-info">
           <i>¥</i>
           <b>{{ v.price }}</b>
-          <span class="shoppingCart">
+          <span class="shoppingCart" @click="addBasket(v)">
             <i class="iconfont icon-gouwuche"></i>
           </span>
         </div>
