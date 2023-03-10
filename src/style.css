@@ -1,6 +1,7 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 html,body {
   max-width: 720px;
@@ -442,7 +443,13 @@ ol, ul {
     text-align: center;
 }
 .basket-img img {
-    max-width: 80%;
+    /* max-width: 80%; */
+    width: 100px;
+    height: 100px;
+}
+.basket-info {
+    flex: 1;
+    padding-left: 20px;
 }
 .basket-list {
     display: flex;
