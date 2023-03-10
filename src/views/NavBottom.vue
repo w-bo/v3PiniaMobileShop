@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import { navData as lists } from '../utils/commonData.js'
+
 </script>
 
 <template>

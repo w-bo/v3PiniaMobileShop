@@ -1,7 +1,8 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { getDetails } from '../../api/api'
+import { mainStore } from '../../store';
 
 let infoData = ref([])
 // 路由传参，拿取参数, 当前路由信息对象
@@ -10,11 +11,21 @@ const route = useRoute()
 const id = route.params.id
 // 获取路由实例
 const router = useRouter()
+const store = mainStore()
 
 // 发送请求，获取数据
 onMounted(async () => {
     const res = await getDetails({ mid: id })
     infoData.value = res
+    store.$patch((state) => {
+        state.isShowNav = false;
+    });
+})
+
+onUnmounted(() => {
+    store.$patch((state) => {
+        state.isShowNav = true;
+    });
 })
 
 const goBack = () => router.push('/home')

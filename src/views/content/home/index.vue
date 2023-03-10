@@ -15,6 +15,8 @@ async function fn() {
     let res = await getPageLists(2,15)
     products.value = res.data
 }
+// 记录小笔记：
+// vue add element-ui | npm i element-ui 区别，安装过程中增加了模块，修改了代码
 </script>
 
 <template>
