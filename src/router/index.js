@@ -7,6 +7,11 @@ const routes = [
         component: () => import('../views/content/home/index.vue')
     },
     {
+        path: '/details/:id',
+        name: 'details',
+        component: () => import('../views/content/details.vue')
+    },
+    {
         path: '/search',
         name: 'search',
         component: () => import('../views/content/search.vue')

@@ -15,7 +15,9 @@ function getImg(name) {
     <ul>
       <li v-for="v in products" :key="v.id">
         <div class="c-wrap-img">
-          <img :src="getImg(v.img)" :alt="v.title">
+            <router-link :to="`/details/${v.id}`">
+              <img :src="getImg(v.img)" :alt="v.title">
+            </router-link>
         </div>
         <h4>{{ v.title }}</h4>
         <div class="c-wrap-info">

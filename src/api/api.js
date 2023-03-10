@@ -6,3 +6,5 @@ export const getPageLists = (page, pageSizes) => {
         method: 'get',
     })
 }
+
+export const getDetails = (obj) => request.get('/api/details', { params: obj });

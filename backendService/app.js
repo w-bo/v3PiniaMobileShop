@@ -12,26 +12,14 @@ app.get('/', (req, res) => {
     res.send('哈哈')
 })
 
+const details = require('./details.js')
 app.get('/home/page/:page/:pageSize', (req, res) => {
     // console.log(req.query)
-    console.log(req.params)
+    // console.log(req.params)
     // res.end('哈哈') end 是http模块提供的方法，给他中文会显示乱码，职能简单
     // 生产数据
     const { pageSize } = req.params
-    const arr = []
-    const imgLists = [ 
-        'bag.png', 'bao.png', 'bj.jpg', 'book.png', 'canju.png', 
-        'ert.png', 'lg.png', 'jiaju.jpg', 'm1.jpg', 'm2.jpg', 
-        'm3.jpg', 'ship.png', 'nv.png', 'wai.png', 'xie.png', 
-    ]
-    for( var i = 1; i <= pageSize; i++ ) {
-        arr.push({
-            id: i,
-            title: `商品${i}`,
-            img: imgLists[i-1],
-            price: Math.ceil(Math.random() * 1000) // 1-1000
-        })
-    }
+    const arr = details.getData(pageSize)
     res.send(
         {
             data: arr,
@@ -39,6 +27,15 @@ app.get('/home/page/:page/:pageSize', (req, res) => {
         }
     )
     // res.json(arr)
+})
+
+app.get('/details', (req, res) => {
+    // console.log(req.params, req.query, 11)
+    const mid = req.query.mid
+    // 根据 mid 找到商品信息
+    const arr = details.getData(15)
+    const result = arr.filter(item => item.id == mid)
+    res.send(result)
 })
 
 // 启动服务，监听端口号
