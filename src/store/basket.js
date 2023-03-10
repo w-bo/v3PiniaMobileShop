@@ -9,9 +9,7 @@ export const basketStore = defineStore('basket', {
         totalCount: (state) => {
             // 返回数量
             // return state.basketData.length
-            let total = 0
-            state.basketData.forEach(v => total += v.count)
-            return total
+            return state.basketData.reduce((prev, cur) => prev + cur.count, 0)
         }
     },
     actions: {
